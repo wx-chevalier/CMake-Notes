@@ -6,7 +6,7 @@ cmake_minimum_required( VERSION 3.5 )
 
 # 3,设定编译参数
 set(CMAKE_CXX_STANDARD    11)  # 指定 C++ 版本
-set(CMAKE_BUILD_TYPE "Release")  # 调试使用Debug，可以查看中间变量；发布使用Release，运行速度快
+set(CMAKE_BUILD_TYPE "Release")  # 调试使用 Debug，可以查看中间变量；发布使用 Release，运行速度快
 
 # 4，把当前文件夹下的源码列表（文件后缀匹配的那些文件）存到变量 SRCS 中
 file( GLOB SRCS *.c *.cpp *.cc *.h *.hpp )

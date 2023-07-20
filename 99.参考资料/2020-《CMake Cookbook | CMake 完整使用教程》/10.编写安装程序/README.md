@@ -37,7 +37,7 @@
 
 `Message.hpp`头文件包含以下内容:
 
-```
+```h
 #pragma once
 
 #include <iosfwd>
@@ -62,7 +62,7 @@ std::string getUUID();
 
 `Message.cpp`中有相应的实现：
 
-```
+```cpp
 #include "Message.hpp"
 #include <iostream>
 #include <string>
@@ -97,7 +97,7 @@ std::string getUUID()
 
 最后，示例`hello-world.cpp`内容如下:
 
-```
+```cpp
 #include <cstdlib>
 #include <iostream>
 #include "Message.hpp"

@@ -1,7 +1,7 @@
 cmake_minimum_required (VERSION 3.0)
 project (PybindMatrix)
 
-find_package (Eigen3 REQUIRED NO_MODULE)
+find_package(Eigen3 REQUIRED NO_MODULE)
 find_package(PythonLibs REQUIRED)
 
 include_directories(${PYTHON_INCLUDE_DIRS})
