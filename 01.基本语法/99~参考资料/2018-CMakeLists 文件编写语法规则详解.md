@@ -2,7 +2,7 @@
 
 # CMakeLists 文件编写语法规则详解
 
-CMake 要求要求工程主目录和所有存放源代码子目录下都要编写 CMakeLists.txt 文件，注意大小写（CM 大写，Lists 中 L 要大写且不要落下 s)。CMake 变量使用${}方式取值,但是在 IF 控制语句中是直接使用变量名，环境变量使用 \$ENV{} 方式取值,使用 `SET(ENV{VAR} VALUE)` 赋值
+CMake 要求要求工程主目录和所有存放源代码子目录下都要编写 CMakeLists.txt 文件，注意大小写（CM 大写，Lists 中 L 要大写且不要落下 s)。CMake 变量使用${}方式取值,但是在 IF 控制语句中是直接使用变量名，环境变量使用 `\$ENV{}` 方式取值，使用`SET(ENV{VAR} VALUE)` 赋值：
 
 ```sh
 指令(参数1 参数2…)
@@ -42,12 +42,14 @@ ADD_EXECUTABLE(hello main.c;func.c)
   该命令告诉 CMake 去**子目录**中查看可用的 CMakeLists.txt 文件
   指令用于向当前工程添加存放源文件的子目录,并可以指定中间二进制和目标二进制存放的位置。`EXCLUDE_FROM_ALL` 参数的含义是将这个目录从编译过程中排除。比如,工程的 example,可能就需要工程构建完成后,再进入 example 目录单独进行构建。
   在我们的项目中，我们添加了 src 目录到项目中，而把对应于 src 目录生成的中间文件和目标文件存放到 bin 目录下，在上一节举例中“外部构建”的情况下，中间文件和目标文件将存放在 build/srcobj 目录下
+
 - **ADD_EXECUTABLE 命令**
-  告诉工程生成一个**可执行文件**。该命令定义了工程最终生成的可执行文件的文件名以及参与编译的头文件和 cpp 文件。
-  如果想指定生成的可执行文件的存放路径，可以设置 cmake 中预定义变量 EXECUTABLE_OUTPUT_PATH 的值。例如，将生成的可执行文件放置在 cmake 编译路径的 bin 文件夹下可用：`SET(EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR}/bin)`
+  告诉工程生成一个**可执行文件**。该命令定义了工程最终生成的可执行文件的文件名以及参与编译的头文件和 cpp 文件。 如果想指定生成的可执行文件的存放路径，可以设置 cmake 中预定义变量 EXECUTABLE_OUTPUT_PATH 的值。例如，将生成的可执行文件放置在 cmake 编译路径的 bin 文件夹下可用：`SET(EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR}/bin)`
+
 - **ADD_LIBRARY 命令**
   **语法：**`ADD_LIBRARY(libname [SHARED|STATIC]`
   告诉工程生成一个库文件
+
 - **FIND_LIBRARY 命令**
   查找库所在目录，语法如下：
 
@@ -74,21 +76,23 @@ find_library (
 举例：
 
 ```
-FIND_LIBRARY(RUNTIME_LIB rt /usr/lib  /usr/local/lib NO_DEFAULT_PATH)
+FIND_LIBRARY(RUNTIME_LIB rt /usr/lib /usr/local/lib NO_DEFAULT_PATH)
 ```
 
-cmake 会在目录中查找，如果所有目录中都没有，值`RUNTIME_LIB`就会被赋为`NO_DEFAULT_PATH`
+cmake 会在目录中查找，如果所有目录中都没有，值 `RUNTIME_LIB` 就会被赋为 `NO_DEFAULT_PATH`
 
 - **SET 命令——用于设置变量，相当于为变量取别名**
   **SET(CMAKE_BUILE_TYPE DEBUG)** 设置编译类型 debug 或者 release。debug 版会生成相关调试信息，可以使用 GDB 进行调试；release 不会生成调试信息。当无法进行调试时查看此处是否设置为 debug.
   SET(CMAKE_C_FLAGS_DEBUG “-g -Wall”) 设置编译器的类型
   CMAKE_C_FLAGS_DEBUG ---- C 编译器
   CMAKE_CXX_FLAGS_DEBUG ---- C++ 编译器
+
 - **CMAKE_MODULE_PATH 变量——定义 cmake 模块所在路径**
   如果你的工程比较复杂,有可能会自己编写一些 **cmake 模块**（所谓 cmake 模块指的是在该文件内部定义了一些变量，这些变量指明了一些头文件路径和库文件路径等有用信息）。这些 cmake 模块是随你的工程发布的,为了让 cmake 在处理 CMakeLists.txt 时找到这些模块,你需要通过 SET 指令,将自己的 cmake 模块路径设置一下。
   比如
   `SET(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake)`
   这时候你就可以通过 INCLUDE 指令来调用自己的模块了
+
 - **EXECUTABLE_OUTPUT_PATH 和 LIBRARY_OUTPUT_PATH 变量**
   我们可以通过 `SET` 指令重新定义 `EXECUTABLE_OUTPUT_PATH` 和 `LIBRARY_OUTPUT_PATH` 变量来指定最终的目标二进制的位置(指最终生成的 CRNode 可执行文件或者最终的共享库，而不包含编译生成的中间文件)。
   命令如下：
@@ -101,26 +105,30 @@ cmake 会在目录中查找，如果所有目录中都没有，值`RUNTIME_LIB`�
 由于在之前学习 C++编程一直是在 VS 中进行，当时就涉及到了众多有关头文件、链接库的配置过程，还有很多编译选项的设置，而 CMake 则相当于用自己的语法规则配置了整个项目，控制编译流程，因此可以从 VS 的配置过程来对照学习 CMake 中一些基本语法到底在做什么事。
 
 采用**外部构建**项目时候编写的 CMakeLists.txt：
+
 **1、在项目文件夹下新建一个 CMakeLists.txt**
+
 同时新建一个文件夹 build 在此文件夹中执行 cmake …即可进行项目构建；（前提是项目文件夹下源文件已经准备好）
 `set(TARGET_NAME rimeserver)`；设置项目的变量名字；
 `PROJECT(${TARGET_NAME})`；
 `cmake_minimum_required(VERSION 2.8.12)`
+
 **2、CMakeLists.txt 文件中依赖库及文件的设置**
 
-1. `include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)`
-   包含 CMakeLists.txt 文件同级目录的 include 文件夹，相当于在 VS 中设置**包含文件**；
-   2）`add_executable(${TARGET_NAME} ${SOURCES})`
-   `${TARGET_NAME}`代表你设置的项目名称变量；
-   `${SOURCES}`代表你的源文件变量；
-   `add_executable`代表项目生成一个可执行文件；
-   相当于在 VS 中新建一个项目时一步步填写的**项目名称**等。
-   3）`add_dependencies(${TARGET_NAME} deploy)`
-   deploy 代表你项目依赖的项目，保证 deploy 目标在其他的目标之前被构建；
-   4）`target_link_libraries(${TARGET_NAME}`
-   指定项目依赖的 lib 文件，相当于在 VS 中设置链接器下面的**链接库**；
-   5）`set_target_properties(${TARGET_NAME} PROPERTIES LINK_FLAGS "/SUBSYSTEM:WINDOWS")`
-   设置项目属性，相当于 VS 中项目属性设置页中的各种条目。
+1）`include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)` 包含 CMakeLists.txt 文件同级目录的 include 文件夹，相当于在 VS 中设置**包含文件**；
+
+2）`add_executable(${TARGET_NAME} ${SOURCES})`
+`${TARGET_NAME}`代表你设置的项目名称变量；
+`${SOURCES}`代表你的源文件变量；
+`add_executable`代表项目生成一个可执行文件；
+相当于在 VS 中新建一个项目时一步步填写的**项目名称**等。
+
+3）`add_dependencies(${TARGET_NAME} deploy)`
+deploy 代表你项目依赖的项目，保证 deploy 目标在其他的目标之前被构建；
+
+4）`target_link_libraries(${TARGET_NAME}` 指定项目依赖的 lib 文件，相当于在 VS 中设置链接器下面的**链接库**；
+
+5）`set_target_properties(${TARGET_NAME} PROPERTIES LINK_FLAGS "/SUBSYSTEM:WINDOWS")` 设置项目属性，相当于 VS 中项目属性设置页中的各种条目。
 
 ## CMake 中常用变量汇总
 
