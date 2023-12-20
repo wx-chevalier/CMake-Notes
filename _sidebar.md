@@ -1,17 +1,17 @@
-  - 1 01.基本语法 [3]
+  - 1 01~基本语法 [3]
     - 1.1 99~参考资料 [2]
-      - [1.1.1 CMakeLists 文件编写语法规则详解](/01.基本语法/99~参考资料/2018-CMakeLists%20文件编写语法规则详解.md)
-      - [1.1.2 Is there an ultimate Makefile?](/01.基本语法/99~参考资料/2023-Is%20there%20an%20ultimate%20Makefile?.md)
-    - [1.2 CMake 新旧版本对比](/01.基本语法/CMake%20新旧版本对比.md)
-    - [1.3 CMake 简单示例](/01.基本语法/CMake%20简单示例.md)
-  - [2 02.项目构建](/02.项目构建/README.md)
+      - [1.1.1 CMakeLists 文件编写语法规则详解](/01~基本语法/99~参考资料/2018-CMakeLists%20文件编写语法规则详解.md)
+      - [1.1.2 Is there an ultimate Makefile?](/01~基本语法/99~参考资料/2023-Is%20there%20an%20ultimate%20Makefile?.md)
+    - [1.2 CMake 新旧版本对比](/01~基本语法/CMake%20新旧版本对比.md)
+    - [1.3 CMake 简单示例](/01~基本语法/CMake%20简单示例.md)
+  - [2 02~项目构建](/02~项目构建/README.md)
     
-  - [3 03.外部库和程序 [1]](/03.外部库和程序/README.md)
+  - [3 03~外部库和程序 [1]](/03~外部库和程序/README.md)
     - 3.1 99~参考资料 [3]
-      - [3.1.1 2020~find_package 用法详解](/03.外部库和程序/99~参考资料/2020~find_package%20用法详解.md)
-      - [3.1.2 2021~C++ 工程：总结 CMake 添加第三方库依赖方式 git submodule、 find_library、FetchContent、CPM 等](/03.外部库和程序/99~参考资料/2021~C++%20工程：总结%20CMake%20添加第三方库依赖方式%20git%20submodule、%20find_library、FetchContent、CPM%20等.md)
-      - [3.1.3 2021~CMake 依赖处理](/03.外部库和程序/99~参考资料/2021~CMake%20依赖处理.md)
-  - [4 04.测试](/04.测试/README.md)
+      - [3.1.1 2020~find_package 用法详解](/03~外部库和程序/99~参考资料/2020~find_package%20用法详解.md)
+      - [3.1.2 2021~C++ 工程：总结 CMake 添加第三方库依赖方式 git submodule、 find_library、FetchContent、CPM 等](/03~外部库和程序/99~参考资料/2021~C++%20工程：总结%20CMake%20添加第三方库依赖方式%20git%20submodule、%20find_library、FetchContent、CPM%20等.md)
+      - [3.1.3 2021~CMake 依赖处理](/03~外部库和程序/99~参考资料/2021~CMake%20依赖处理.md)
+  - [4 04~测试](/04~测试/README.md)
     
   - [5 05~安装与发布](/05~安装与发布/README.md)
     
