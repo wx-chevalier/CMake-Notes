@@ -44,7 +44,7 @@ ADD_EXECUTABLE(hello main.c;func.c)
   在我们的项目中，我们添加了 src 目录到项目中，而把对应于 src 目录生成的中间文件和目标文件存放到 bin 目录下，在上一节举例中“外部构建”的情况下，中间文件和目标文件将存放在 build/srcobj 目录下
 
 - **ADD_EXECUTABLE 命令**
-  告诉工程生成一个**可执行文件**。该命令定义了工程最终生成的可执行文件的文件名以及参与编译的头文件和 cpp 文件。 如果想指定生成的可执行文件的存放路径，可以设置 cmake 中预定义变量 EXECUTABLE_OUTPUT_PATH 的值。例如，将生成的可执行文件放置在 cmake 编译路径的 bin 文件夹下可用：`SET(EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR}/bin)`
+  告诉工程生成一个**可执行文件**。该命令定义了工程最终生成的可执行文件的文件名以及参与编译的头文件和 cpp 文件。如果想指定生成的可执行文件的存放路径，可以设置 cmake 中预定义变量 EXECUTABLE_OUTPUT_PATH 的值。例如，将生成的可执行文件放置在 cmake 编译路径的 bin 文件夹下可用：`SET(EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR}/bin)`
 
 - **ADD_LIBRARY 命令**
   **语法：**`ADD_LIBRARY(libname [SHARED|STATIC]`

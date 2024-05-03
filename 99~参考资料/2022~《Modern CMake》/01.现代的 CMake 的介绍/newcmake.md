@@ -34,7 +34,7 @@ CMake 修改记录的简化版本，这里仅挑了作者认为的重点。这�
 
 ## [CMake 3.3][]：if 中添加 IN_LIST
 
-if 中添加了 `IN_LIST` 选项，并且可以使用环境变量 `$PATH` (详见 CMake 3.6) 对库文件进行搜索，添加了 INTERFACE 库的依赖关系，还有其他一些改进。随着支持的语言越来越多， `COMPILE_LANGUAGE` 支持生成器表达式就很有必要了。并且，Makefile 在并行执行时的输出更好看了。
+if 中添加了 `IN_LIST` 选项，并且可以使用环境变量 `$PATH` (详见 CMake 3.6) 对库文件进行搜索，添加了 INTERFACE 库的依赖关系，还有其他一些改进。随着支持的语言越来越多，`COMPILE_LANGUAGE` 支持生成器表达式就很有必要了。并且，Makefile 在并行执行时的输出更好看了。
 
 - 首次发布于[2015 年 7 月 23 日](https://blog.kitware.com/cmake-3-3-0-released/)
 - `if` 支持 `IN_LIST` 关键字
@@ -67,7 +67,7 @@ if 中添加了 `IN_LIST` 选项，并且可以使用环境变量 `$PATH` (详�
 
 ## [CMake 3.6][]：Clang-Tidy
 
-这个版本增加了 Clang-Tidy 支持，添加了更多的工具和对原有功能的改进。 取消了在 Unix 系统上搜索 `$PATH` 的问题，取而代之的是使用 `$CMAKE_PREFIX_PATH`。
+这个版本增加了 Clang-Tidy 支持，添加了更多的工具和对原有功能的改进。取消了在 Unix 系统上搜索 `$PATH` 的问题，取而代之的是使用 `$CMAKE_PREFIX_PATH`。
 
 - 首次发布于 [2016 年 7 月 7 日](https://blog.kitware.com/cmake-3-6-0-available-for-download/)
 - 为工程安装时添加 `EXCLUDE_FROM_ALL`
@@ -367,7 +367,7 @@ CMake 文档通过添加 “new in” 标签来快速查看添加的内容，无
 - CUDA 的 nvcc 可以使用 LTO
 - 新增了工作流预设和包预设。
 - `SYSTEM` 可作为目录属性添加到 `add_subdirectory` 和 `FetchContent`
-- `block()/endblock()` 用于策略/变量范围， `return()` 中新增 `PROPOGATE` 选项
+- `block()/endblock()` 用于策略/变量范围，`return()` 中新增 `PROPOGATE` 选项
 - 添加了 `BSD` 和 `LINUX` 变量
 - `find_*` 新增 `VALIDATOR` 选项。
 - 新增的 `SYSTEM` 目标/目录属性和 `EXPORT_NO_SYSTEM`，同样用于 FetchContent 。

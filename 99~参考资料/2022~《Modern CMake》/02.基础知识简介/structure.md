@@ -39,7 +39,7 @@
 
 其中，文件的名称不是绝对的，你可能会看到关于文件夹名称为 `tests` 还是 `test` 的争论，并且应用程序所在的文件夹可能为其他的名称（ 或者一个项目只有库文件 ）。你也许也会看到一个名为 `python` 的文件夹，那里存储关于 python 绑定器的内容，或者是一个 `cmake` 文件夹用于存储如 `Find<library>.cmake` 这样的 `.cmake` 辅助文件。但是一些比较基础的东西都在上面包括了。
 
-可以注意到一些很明显的问题， `CMakeLists.txt` 文件被分割到除了 `include` 目录外的所有源代码目录下。这是为了能够将 `include` 目录下的所有文件拷贝到 `/usr/include` 目录或其他类似的目录下（除了配置的头文件，这个我将会在另一章讲到），因此为了避免冲突等问题，其中不能有除了头文件外的其他文件。这也是为什么在 `include` 目录下有一个名为项目名的目录。顶层 `CMakeLists.txt` 中应使用 `add_subdirectory` 命令来添加一个包含 `CMakeLists.txt` 的子目录。
+可以注意到一些很明显的问题，`CMakeLists.txt` 文件被分割到除了 `include` 目录外的所有源代码目录下。这是为了能够将 `include` 目录下的所有文件拷贝到 `/usr/include` 目录或其他类似的目录下（除了配置的头文件，这个我将会在另一章讲到），因此为了避免冲突等问题，其中不能有除了头文件外的其他文件。这也是为什么在 `include` 目录下有一个名为项目名的目录。顶层 `CMakeLists.txt` 中应使用 `add_subdirectory` 命令来添加一个包含 `CMakeLists.txt` 的子目录。
 
 你经常会需要一个 `cmake` 文件夹，里面包含所有用到的辅助模块。这是你放置所有 `Find*.cmake` 的文件。你可以在 [github.com/CLIUtils/cmake](https://github.com/CLIUtils/cmake) 找到一些常见的辅助模块集合。你可以通过以下语句将此目录添加到你的 CMake Path 中：
 

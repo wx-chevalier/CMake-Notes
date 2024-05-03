@@ -1,6 +1,6 @@
 # 运行 CMake
 
-在编写 CMake 之前，要确保你已经清楚了如何运行 CMake 来构建文件。 几乎所有 CMake 项目都一样。
+在编写 CMake 之前，要确保你已经清楚了如何运行 CMake 来构建文件。几乎所有 CMake 项目都一样。
 
 ## 构建项目
 
@@ -92,7 +92,7 @@ CMake 支持缓存选项。CMake 中的变量可以被标记为 "cached"，这�
 
 大部分软件包中都会用到以下的 CMake 选项：
 
-- `-DCMAKE_BUILD_TYPE=` 从 Release， RelWithDebInfo， Debug， 或者可能存在的更多参数中选择。
+- `-DCMAKE_BUILD_TYPE=` 从 Release，RelWithDebInfo，Debug，或者可能存在的更多参数中选择。
 - `-DCMAKE_INSTALL_PREFIX=` 这是安装位置。UNIX 系统默认的位置是 `/usr/local`，用户目录是 `~/.local`，也可以是你自己指定的文件夹。
 - `-DBUILD_SHARED_LIBS=` 你可以把这里设置为 `ON` 或 `OFF` 来控制共享库的默认值（不过，你也可以明确选择其他值而不是默认值）
 - `-DBUILD_TESTING=` 这是启用测试的通用名称，当然不会所有软件包都会使用它，有时这样做确实不错。

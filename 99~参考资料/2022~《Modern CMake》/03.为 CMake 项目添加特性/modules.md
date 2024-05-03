@@ -59,7 +59,7 @@ try_compile(
 )
 ```
 
-这里有很多可以添加的选项，例如 `COMPILE_DEFINITIONS`。在 CMake 3.8+ 中， 这将默认遵循 CMake 中 C/C++/CUDA 的标准设置。如果你使用的是 `try_run` 而不是 `try_compile`，它将运行生成的程序并将运行结果存储在 `RUN_OUTPUT_VARIABLE` 中。
+这里有很多可以添加的选项，例如 `COMPILE_DEFINITIONS`。在 CMake 3.8+ 中，这将默认遵循 CMake 中 C/C++/CUDA 的标准设置。如果你使用的是 `try_run` 而不是 `try_compile`，它将运行生成的程序并将运行结果存储在 `RUN_OUTPUT_VARIABLE` 中。
 
 ## «module:FeatureSummary»
 

@@ -74,7 +74,7 @@ if (${ROOT_VERSION} VERSION_LESS "6.16")
 endif()
 ```
 
-为了修复 `RootNewMacros.cmake` 文件中的错误，这里需要 `if(…)`。若没有全局包含目录或 `inc` 文件夹，该错误会导致字典生成失败。这里我包含了一个不存在的目录，只是为了让字典能够顺利生成， `ROOT_NONEXISTENT_DIRECTORY_HACK` 目录其实并不存在。
+为了修复 `RootNewMacros.cmake` 文件中的错误，这里需要 `if(…)`。若没有全局包含目录或 `inc` 文件夹，该错误会导致字典生成失败。这里我包含了一个不存在的目录，只是为了让字典能够顺利生成，`ROOT_NONEXISTENT_DIRECTORY_HACK` 目录其实并不存在。
 
 `rootcling` 使用带有 [特定公式][linkdef-root] 的特殊头文件来确定为哪部分用于生成字典。文件名可以有前缀，但**必须**以 `LinkDef.h` 结尾。编写完成了这个头文件，就可以调用字典中生成的函数了。
 

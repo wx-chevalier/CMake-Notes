@@ -8,7 +8,7 @@
 cmake_minimum_required(VERSION 3.1)
 ```
 
-顺便提一下关于 CMake 的语法。命令 «command:`cmake_minimum_required`» 是不区分大小写的，所以常用的做法是使用小写[^1]。 `VERSION` 和它后面的版本号是这个函数的特殊关键字。在这本书中，你可以点击命令的名称来查看它的官方文档，并且可以使用下拉菜单来切换 `CMake` 的版本。
+顺便提一下关于 CMake 的语法。命令 «command:`cmake_minimum_required`» 是不区分大小写的，所以常用的做法是使用小写[^1]。`VERSION` 和它后面的版本号是这个函数的特殊关键字。在这本书中，你可以点击命令的名称来查看它的官方文档，并且可以使用下拉菜单来切换 `CMake` 的版本。
 
 这一行很特殊[^2]！ `CMake` 的版本与它的特性（policies）相互关联，这意味着它也定义了 `CMake` 行为的变化。因此，如果你将 `cmake_minimum_required` 中的 `VERSION` 设定为 `2.8`，那么你将会在 macOS 上产生链接错误，例如，即使在 `CMake` 最新的版本中，如果你将它设置为 `3.3` 或者更低，那么你将会得到一个隐藏的标志行为(symbols behaviour)错误等。你可以在 «cmake:policies» 中得到一系列 policies 与 versions 的说明。
 
@@ -94,7 +94,7 @@ add_library(one STATIC two.cpp three.h)
 target_include_directories(one PUBLIC include)
 ```
 
-«command:`target_include_directories`» 为目标添加了一个目录。 `PUBLIC` 对于一个二进制目标没有什么含义；但对于库来说，它让 CMake 知道，任何链接到这个目标的目标也必须包含这个目录。其他选项还有 `PRIVATE`（只影响当前目标，不影响依赖），以及 `INTERFACE`（只影响依赖）。
+«command:`target_include_directories`» 为目标添加了一个目录。`PUBLIC` 对于一个二进制目标没有什么含义；但对于库来说，它让 CMake 知道，任何链接到这个目标的目标也必须包含这个目录。其他选项还有 `PRIVATE`（只影响当前目标，不影响依赖），以及 `INTERFACE`（只影响依赖）。
 
 接下来我们可以将目标之间链接起来：
 
