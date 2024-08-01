@@ -13,7 +13,7 @@ endif()
 # If variable does not expand to one of the above, CMake will expand it then try again
 ```
 
-如果你在这里使用 `${variable}` 可能会有一些奇怪，因为看起来它好像 `variable` 被展开 ( expansion ) 了两次。在 CMake 3.1+ 版本中加入了一个新的特性 ( «policy:CMP0054» ) ，CMake 不会再展开已经被引号括起来的展开变量。也就是说，如果你的 CMake 版本大于 `3.1` ，那么你可以这么写：
+如果你在这里使用 `${variable}` 可能会有一些奇怪，因为看起来它好像 `variable` 被展开(expansion)了两次。在 CMake 3.1+ 版本中加入了一个新的特性 ( «policy:CMP0054» ) ，CMake 不会再展开已经被引号括起来的展开变量。也就是说，如果你的 CMake 版本大于 `3.1` ，那么你可以这么写：
 
 ```cmake
 if("${variable}")
