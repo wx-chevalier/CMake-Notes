@@ -77,11 +77,11 @@
 
 #### PROJECT_BINARY_DIR
 
-- 运行 cmake 命令的目录，通常是 ${PROJECT_SOURCE_DIR}/build，同 CMAKE_BINARY_DIR、<projectname>\_BINARY_DIR
+- 运行 cmake 命令的目录，通常是 ${PROJECT_SOURCE_DIR}/build，同 CMAKE_BINARY_DIR、`<projectname>_BINARY_DIR`
 
 #### PROJECT_SOURCE_DIR
 
-- 工程的根目录，同 CMAKE_SOURCE_DIR、<projectname>\_SOURCE_DIR
+- 工程的根目录，同 CMAKE_SOURCE_DIR、`<projectname>_SOURCE_DIR`
 
 #### CMAKE_CURRENT_SOURCE_DIR
 

@@ -12,7 +12,6 @@ The examples include:
   - link:ii-cxx-standard[cxx-standard]. 使用CMake v3.1中引入的CMAKE_CXX_STANDARD变量。
   - link:iii-compile-features[compile-features]. 使用CMake v3.1中引入的target_compile_features函数。
 
-
 == C++ Standard Common Method
 :toc:
 :toc-placement!:
