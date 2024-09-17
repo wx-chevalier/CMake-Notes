@@ -1,7 +1,7 @@
 # 1,设置工程名称，叫“Demo1”（在Linux下可以随便设置）
 project( Demo1 )
 
-# 2,设置 CMake 最低版本号，我电脑装的是3.5
+# 2,设置 CMake 最低版本号，我电脑装的是 3.5
 cmake_minimum_required( VERSION 3.5 )
 
 # 3,设定编译参数

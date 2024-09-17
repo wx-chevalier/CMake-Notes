@@ -8,24 +8,23 @@
 
 这是经典的 CMake 构建流程 （TM）：
 
-{% term %}
+```sh
 ~/package $ mkdir build
 ~/package $ cd build
 ~/package/build $ cmake ..
 ~/package/build $ make
-{% endterm %}
+```
 
 你可以用 `cmake --build .` 替换 `make` 这一行。它会调用 `make` 或者任何你正在使用的构建工具。如果你正在使用版本比较新的 CMake（除非你正在检查对于老版本 CMake 的兼容性，否则应该使用较新的版本），你也可以这样做：
 
-{% term %}
+```
 ~/package $ cmake -S . -B build
 ~/package $ cmake --build build
-{% endterm %}
+```
 
 以下**任何一条**命令都能够执行安装：
 
-{% term %}
-
+```sh
 # From the build directory (pick one)
 
 ~/package/build $ make install
@@ -37,7 +36,7 @@
 ~/package $ make -C build install
 ~/package $ cmake --build build --target install
 ~/package $ cmake --install build # CMake 3.15+ only
-{% endterm %}
+```
 
 所以你应该选择哪一种方法？只要你**别忘记**输入构建目录作为参数，在构建目录之外的时间较短，并且从源代码目录更改源代码比较方便就行。你应该试着习惯使用 `--build`，因为它能让你免于只用 `make` 来构建。需要注意的是，在构建目录下进行工作一直都非常普遍，并且一些工具和命令（包括 CTest）仍然需要在 build 目录中才能工作。
 
@@ -49,9 +48,9 @@
 
 指定编译器必须在第一次运行时在空目录中进行。这种命令并不属于 CMake 语法，但你仍可能不太熟悉它。如果要选择 Clang：
 
-{% term %}
+```
 ~/package/build $ CC=clang CXX=clang++ cmake ..
-{% endterm %}
+```
 
 这条命令设置了 bash 里的环境变量 CC 和 CXX，并且 CMake 会使用这些参数。这一行命令就够了，你也只需要调用一次；之后 CMake 会继续使用从这些变量里推导出来的路径。
 
@@ -59,9 +58,9 @@
 
 你可以选择的构建工具有很多；通常默认的是 `make`。要显示在你的系统上 CMake 可以调用的所有构建工具，运行：
 
-{% term %}
+```
 ~/package/build $ cmake --help
-{% endterm %}
+```
 
 你也可以用 `-G"My Tool"`（仅当构建工具的名字中包含空格时才需要引号）来指定构建工具。像指定编译器一样，你应该在一个目录中第一次调用 CMake 时就指定构建工具。如果有好几个构建目录也没关系，比如 `build/` 和 `buildXcode`。你可以用环境变量 `CMAKE_GENERATOR` 来指定默认的生成器（CMake 3.15+）。需要注意的是，makefiles 只会在你明确地指出线程数目之时才会并行运行，比如 `make -j2`，而 Ninja 却会自动地并行运行。在较新版本的 CMake 中，你能直接传递并行选项，比如`-j2`，到命令 `cmake --build `。
 
@@ -73,12 +72,12 @@
 
 同样，这不属于 CMake，如果你正使用像 `make` 一样的命令行构建工具，你能获得详细的输出：
 
-{% term %}
+```
 ~/package/build $ VERBOSE=1 make96
 
 我们已经提到了在构建时可以有详细输出，但你也可以看到详细的 CMake 配置输出。`--trace` 选项能够打印出运行的 CMake 的每一行。由于它过于冗长，CMake 3.7 添加了 `--trace-source="filename"` 选项，这让你可以打印出你想看的特定文件运行时执行的每一行。如果你选择了要调试的文件的名称（在调试一个 CMakeLists.txt 时通常选择父目录，因为它们名字都一样），你就会只看到这个文件里运行的那些行。这很实用！
 
-{% endterm %}
+```
 
 实际上你写成 `make VERBOSE=1`，make 也能正确工作，但这是 `make` 的一个特性而不是命令行的惯用写法。
 

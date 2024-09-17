@@ -1,0 +1,4 @@
+# ninja log v5
+0	18	1684854937278078650	CMakeFiles/hello_headers.dir/src/main.cpp.o	e67afc8ef72efd82
+0	236	1684854937495639018	CMakeFiles/hello_headers.dir/src/Hello.cpp.o	1da03a66f29b1fc9
+237	271	1684854937531517688	hello_headers	2afa28dd707f3804
