@@ -53,7 +53,7 @@
 
 #### CMAKE_CXX_COMPILER
 
-- C++编译器，默认 /usr/bin/c++。 也可通过指令 ADD_DEFINITIONS() 添加
+- C++编译器，默认 /usr/bin/c++。也可通过指令 ADD_DEFINITIONS() 添加
 
 #### CMAKE_C_FLAGS
 
@@ -96,7 +96,7 @@
 #### CMAKE_PREFIX_PATH
 
 - 默认为空。
-- 指定要搜索的安装前缀的目录 find_package()， find_program()， find_library()， find_file()，和 find_path() 命令。
+- 指定要搜索的安装前缀的目录 find_package()，find_program()，find_library()，find_file()，和 find_path() 命令。
 - 每个命令将添加相应的子目录（例如 bin，lib 或 include），作为其自己的文档中指定。默认空,由项目设定.
 
 #### CMAKE_MODULE_PATH
