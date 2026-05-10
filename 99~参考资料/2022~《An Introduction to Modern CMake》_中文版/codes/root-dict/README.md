@@ -3,7 +3,7 @@
 这是在 CMake 中构建包含字典模块的例子。通过 `find_package` 手动添加 ROOT，而非使用 ROOT 建议的标志。在大多数系统中，CMake 文件中唯一重要的标志。
 
 #### examples/root-dict/CMakeLists.txt
-[import:'main', lang:'cmake'](CMakeLists.txt)
+[import:'main', lang:'cmake'](02~软件/00~编程语言/CMake-Notes/99~参考资料/2022~《An%20Introduction%20to%20Modern%20CMake》_中文版/codes/root-dict/CMakeLists.txt)
 
 ## 支持文件
 
